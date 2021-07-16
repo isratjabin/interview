@@ -1,0 +1,109 @@
+.todos__list {
+    .todo__item {
+        position: relative;
+      cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      font-size: 18px;
+      padding: 20px;
+      // background-color: #eee;
+      border-bottom: 1px solid #eee;
+      &.item__completed {
+        color: #aaa;
+        .check__box {
+          background: rgb(11, 223, 170);
+          .material-icons {
+            color: black;
+            opacity: 1;
+          }
+        }
+        &:hover {
+          .check__box {
+            background-color: rgb(11, 223, 170);
+            
+          }
+        }
+       
+      }
+      .todo__text{
+        display: grid;
+        gap: 10px;
+      }
+      .check__box {
+        display: flex;
+        flex-shrink: 0;
+        margin-right: 20px;
+        border: 2px solid rgb(199, 193, 193);
+        border-radius: 50%;
+        height: 28px;
+        width: 28px;
+        transition: background-color 0.2s;
+        .material-icons {
+          font-size: 20px;
+          margin: auto;
+          opacity: 0;
+          transition: opacity 0.2s;
+        }
+      }
+  
+      .todo__controls__box {
+        position: absolute;
+        bottom: 0;
+        right: 5px;
+        display: flex;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(2px);
+        transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+        .todo__control__button {
+          background-color: #f5f7f8;
+  
+          padding: 7px 10px;
+  
+          .material-icons {
+            font-size: 20px;
+            color: #555;
+          }
+          &:first-of-type {
+            border-top-left-radius: 7px;
+          }
+          &:last-of-type {
+            border-top-right-radius: 7px;
+          }
+          &:hover {
+            background-color: #eee;
+            .material-icons {
+              color: #333;
+            }
+          }
+          &:active {
+            background-color: #e5e7e8;
+          }
+        }
+        .is-danger {
+          &:active {
+            .material-icons {
+              color: rgb(155, 27, 27);
+            }
+          }
+        }
+      }
+  
+      &:hover {
+        .check__box {
+          background-color: #eee;
+          .material-icons {
+            opacity: 0.28;
+          }
+        }
+        .todo__controls__box {
+          opacity: 1;
+          visibility: visible;
+          transition-delay: 0.4s;
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+  

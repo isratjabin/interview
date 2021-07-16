@@ -1,0 +1,89 @@
+<mat-card>
+  <mat-card-content>
+    <div class="center">
+      <h2>Sign up</h2>
+    </div>
+    <form (ngSubmit)="onSignUp()" [formGroup]="signupForm">
+      <div class="email-input">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input formControlName="fName" matInput />
+          <mat-error *ngIf="signupForm.get('fName').errors?.required">
+            Required First Name
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="email-input">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input formControlName="lName" matInput />
+          <mat-error *ngIf="signupForm.get('lName').errors?.required">
+            Required Last Name
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="email-input">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input formControlName="email" matInput />
+          <mat-error *ngIf="signupForm.get('email').errors?.required">
+            Required Email
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="email-input">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>DOB</mat-label>
+          <input formControlName="dob" matInput [matDatepicker]="picker" />
+
+          <mat-error *ngIf="signupForm.get('dob').errors?.required">
+            Required DOB
+          </mat-error>
+
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            formControlName="password"
+            matInput
+            type="password"
+          />
+          <mat-error *ngIf="signupForm.get('password').errors?.required">
+            Required Password
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="float-start">
+        <mat-radio-group aria-label="Select an option">
+          <mat-radio-button value="admin">Admin</mat-radio-button>
+          <mat-radio-button value="user">User</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <div class="display-grid">
+        <div class="center">
+          <button
+            mat-flat-button
+            class="login-btn"
+            type="submit"
+            [disabled]="!signupForm.valid"
+          >
+            Sign Up
+          </button>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

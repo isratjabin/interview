@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "interview"
+    }
+  },
+  "defaultProject": "interview",
+  "cli": {
+    "analytics": "a61d7849-48c7-4845-bf1f-0b2962926369"
+  }
 }
